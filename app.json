@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "track buddy",
+    "slug": "track-buddy-hackathon",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.expertizo.trackbuddy",
+      "supportsTablet": true
+    },
+    "android":{
+      "icon": "./assets/logo.png",
+      "package": "com.expertizo.trackbuddy",
+      "config":{
+        "googleMaps":{
+          "apiKey":"AIzaSyBMEQBvkY7PoW124d6xkYwXpCXp1YD4F0E"
+        }
+      },
+      "permissions": [
+        
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "CAMERA",
+        "CAMERA_ROLL",
+        "READ_INTERNAL_STORAGE",
+        "READ_EXTERNAL_STORAGE",
+        "READ_PHONE_STATE",
+        "WRITE_EXTERNAL_STORAGE",
+        "NOTIFICATIONS"
+     
+      ]
+    }
+  }
+}
