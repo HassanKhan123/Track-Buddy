@@ -153,12 +153,13 @@ class JoinGroup extends Component {
   render() {
     const { joinCode } = this.state;
     return (
-      <View>
-        <Text style={{ fontSize: 20, margin: 20 }}>
-          {" "}
-          Enter your circle code to join{" "}
+      <View style={styles.container}>
+        <Image source={require('../../../assets/join.png')}/>
+        <Text style={{ fontSize: 20,marginVertical:20}}>
+         
+          Enter your circle code to join
         </Text>
-        <View style={styles.container}>
+       
           <TextInput
             style={styles.input}
             value={joinCode}
@@ -175,7 +176,7 @@ class JoinGroup extends Component {
               style={styles.loading}
             />
           ) : null}
-        </View>
+        
       </View>
     );
   }
@@ -184,7 +185,8 @@ class JoinGroup extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent:'center'
   },
   input: {
     margin: 15,
@@ -197,7 +199,7 @@ const styles = StyleSheet.create({
   },
   btnText: {
     fontSize: 20,
-    marginTop: -15,
+    marginTop: -5,
     color: "white"
   },
   btn: {
@@ -209,7 +211,9 @@ const styles = StyleSheet.create({
   loading: {
     height: 60,
     width: 60
-  }
+  },
+  
+ 
 });
 
 const mapStateToProps = state => {

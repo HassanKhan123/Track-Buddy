@@ -77,7 +77,8 @@ class CreateGroup extends Component {
     const { groupName } = this.state;
     return (
       <View style={styles.container}>
-        <Text style={{fontSize:24}}>Create Group</Text>
+        <Image source={require('../../../assets/create.png')}/>
+        <Text style={{fontSize:24,marginVertical:20}}>Create Group</Text>
         <TextInput
           style={styles.input}
           value={groupName}

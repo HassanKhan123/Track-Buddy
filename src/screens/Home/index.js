@@ -154,15 +154,17 @@ class Home extends Component {
       <View>
         <StatusBar backgroundColor="green" barStyle="light-content" />
         {this.state.location ? (
-          <View>
+          <View style={{position:'absolute'}}>
+            <View style={{alignSelf:'center',width:200}}>
             <Dropdown
               onChangeText={this.getCirclesUsers}
               value={this.state.selectedGroup}
               label="Your Groups"
               data={data}
+              style={{position:'relative'}}
             />
-
-            <MapView
+            </View>
+            <MapView 
               style={styles.mapStyle}
               initialRegion={{
                 latitude: this.state.latitude,
@@ -217,7 +219,8 @@ class Home extends Component {
 const styles = StyleSheet.create({
   mapStyle: {
     width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height / 2
+    height: Dimensions.get("window").height,
+   
   },
   btnText: {
     fontSize: 20,
@@ -227,10 +230,14 @@ const styles = StyleSheet.create({
   },
   btn: {
     marginTop: 20,
-    padding: 20,
+    padding: 10,
     backgroundColor: "red",
     borderRadius: 15,
-    width: 200
+    width: 200,
+    position:'absolute',
+    top:"65%",
+    alignSelf:'center'
+    
   }
 });
 

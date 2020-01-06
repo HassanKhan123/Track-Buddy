@@ -20,10 +20,10 @@ class InviteUsers extends Component {
   };
 
   invite = async () => {
-    this.setState({loading:true})
+    this.setState({ loading: true });
     const { selectedGroup, selectedGroupCode, phoneNumber } = this.state;
     if (!selectedGroup || !selectedGroupCode || !phoneNumber) {
-        this.setState({loading:false})
+      this.setState({ loading: false });
       alert("Please fill all the fields");
       return;
     }
@@ -39,9 +39,9 @@ class InviteUsers extends Component {
         `${this.props.name} invited you to join ${selectedGroup}. Please enter ${selectedGroupCode} this code in join group page.`
       );
       console.log(result);
-      this.setState({loading:false,phoneNumber:''})
+      this.setState({ loading: false, phoneNumber: "" });
     } else {
-        this.setState({loading:false})
+      this.setState({ loading: false });
       alert("there's no SMS available on this device");
       // misfortune... there's no SMS available on this device
     }
@@ -57,9 +57,19 @@ class InviteUsers extends Component {
       : [];
     // const data = []
     return (
-      <View>
-        <Text style={{fontSize:20,margin:20}}> Enter Phone Number To Send Invite </Text>
-        <Text style={{fontSize:18,marginHorizontal:20}}>Your Available Groups</Text>
+      <View style={styles.container2}>
+        
+          <Image source={require("../../../assets/invite.png")} />
+          <Text style={{ fontSize: 20,marginVertical:10 }}>
+           
+            Enter Phone Number To Send Invite
+          </Text>
+        
+        <Text style={{ fontSize: 18, marginHorizontal: 20 }}>
+          Your Available Groups
+        </Text>
+        <View style={{width:200}}> 
+
         <Dropdown
           onChangeText={(value, index) => {
             this.setState({
@@ -72,9 +82,12 @@ class InviteUsers extends Component {
           label="Your Groups"
           data={data}
         />
-        <Text style={{fontSize:18,marginHorizontal:20}}>Group Code: {this.state.selectedGroupCode}</Text>
+        </View>
+        <Text style={{ fontSize: 18, marginHorizontal: 20 }}>
+          Group Code: {this.state.selectedGroupCode}
+        </Text>
 
-        <View style={styles.container}>
+        <View>
           <TextInput
             style={styles.input}
             defaultValue="Enter Phone Number"
@@ -99,6 +112,11 @@ class InviteUsers extends Component {
 }
 
 const styles = StyleSheet.create({
+  container2: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   container: {
     flex: 1,
     alignItems: "center"
@@ -114,14 +132,16 @@ const styles = StyleSheet.create({
   },
   btnText: {
     fontSize: 20,
-    marginTop: -15,
+    marginTop: -5,
     color: "white"
   },
   btn: {
     marginTop: 20,
     padding: 20,
     backgroundColor: "green",
-    borderRadius: 15
+    borderRadius: 15,
+    width:100,
+    alignSelf:'center'
   },
   loading: {
     height: 60,
