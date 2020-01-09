@@ -9,6 +9,7 @@ import {
   YellowBox
 } from "react-native";
 import { connect } from "react-redux";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import * as firebase from "firebase";
 
 class JoinGroup extends Component {
@@ -153,6 +154,9 @@ class JoinGroup extends Component {
   render() {
     const { joinCode } = this.state;
     return (
+      <KeyboardAwareScrollView>
+
+     
       <View style={styles.container}>
         <Image source={require('../../../assets/join.png')}/>
         <Text style={{ fontSize: 20,marginVertical:20}}>
@@ -178,6 +182,7 @@ class JoinGroup extends Component {
           ) : null}
         
       </View>
+      </KeyboardAwareScrollView>
     );
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import {
   Text,
   View,
@@ -76,6 +77,7 @@ class CreateGroup extends Component {
   render() {
     const { groupName } = this.state;
     return (
+      <KeyboardAwareScrollView>
       <View style={styles.container}>
         <Image source={require('../../../assets/create.png')}/>
         <Text style={{fontSize:24,marginVertical:20}}>Create Group</Text>
@@ -100,6 +102,7 @@ class CreateGroup extends Component {
           />
         ) : null}
       </View>
+      </KeyboardAwareScrollView>
     );
   }
 }

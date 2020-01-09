@@ -13,7 +13,7 @@
     "orientation": "portrait",
     "icon": "./assets/logo.png",
     "splash": {
-      "image": "./assets/logo.png",
+      "image": "./assets/main-splash.png",
       "resizeMode": "cover"
     },
     "updates": {
@@ -26,9 +26,11 @@
       "bundleIdentifier": "com.expertizo.trackbuddy",
       "supportsTablet": true
     },
+   
     "android":{
       "icon": "./assets/logo.png",
       "package": "com.expertizo.trackbuddy",
+      
       "config":{
         "googleMaps":{
           "apiKey":"AIzaSyBMEQBvkY7PoW124d6xkYwXpCXp1YD4F0E"

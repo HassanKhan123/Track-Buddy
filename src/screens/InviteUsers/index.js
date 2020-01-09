@@ -5,8 +5,10 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
-  Image
+  Image,
+  ScrollView
 } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Dropdown } from "react-native-material-dropdown";
 import { connect } from "react-redux";
 import * as SMS from "expo-sms";
@@ -57,56 +59,59 @@ class InviteUsers extends Component {
       : [];
     // const data = []
     return (
-      <View style={styles.container2}>
+       <KeyboardAwareScrollView
+       
+      >
+     
+        <View style={styles.container2}> 
         
-          <Image source={require("../../../assets/invite.png")} />
-          <Text style={{ fontSize: 20,marginVertical:10 }}>
-           
+          <Text style={{ fontSize: 20, marginVertical: 10 }}>
             Enter Phone Number To Send Invite
           </Text>
-        
-        <Text style={{ fontSize: 18, marginHorizontal: 20 }}>
-          Your Available Groups
-        </Text>
-        <View style={{width:200}}> 
 
-        <Dropdown
-          onChangeText={(value, index) => {
-            this.setState({
-              selectedGroup: value,
-              selectedGroupCode: data[index].code
-            });
-            console.log(data[index].code);
-          }}
-          value={this.state.selectedGroup}
-          label="Your Groups"
-          data={data}
-        />
-        </View>
-        <Text style={{ fontSize: 18, marginHorizontal: 20 }}>
-          Group Code: {this.state.selectedGroupCode}
-        </Text>
-
-        <View>
-          <TextInput
-            style={styles.input}
-            defaultValue="Enter Phone Number"
-            value={phoneNumber}
-            onChangeText={text => this.setState({ phoneNumber: text })}
-          />
-          <TouchableOpacity style={styles.btn} onPress={this.invite}>
-            <View>
-              <Text style={styles.btnText}>Invite</Text>
-            </View>
-          </TouchableOpacity>
-          {this.state.loading ? (
-            <Image
-              source={require("../../../assets/loading.gif")}
-              style={styles.loading}
+          <Text style={{ fontSize: 18, marginHorizontal: 20 }}>
+            Your Available Groups
+          </Text>
+          <View style={{ width: 200 }}>
+            <Dropdown
+              onChangeText={(value, index) => {
+                this.setState({
+                  selectedGroup: value,
+                  selectedGroupCode: data[index].code
+                });
+                console.log(data[index].code);
+              }}
+              value={this.state.selectedGroup}
+              label="Your Groups"
+              data={data}
             />
-          ) : null}
+          </View>
+          <Text style={{ fontSize: 18, marginHorizontal: 20 }}>
+            Group Code: {this.state.selectedGroupCode}
+          </Text>
+
+          <View>
+            <TextInput
+              style={styles.input}
+              defaultValue="Enter Phone Number"
+              value={phoneNumber}
+              onChangeText={text => this.setState({ phoneNumber: text })}
+            />
+            <TouchableOpacity style={styles.btn} onPress={this.invite}>
+              <View>
+                <Text style={styles.btnText}>Invite</Text>
+              </View>
+            </TouchableOpacity>
+            {this.state.loading ? (
+              <Image
+                source={require("../../../assets/loading.gif")}
+                style={styles.loading}
+              />
+            ) : null}
+          </View>
         </View>
-      </View>
+      
+      </KeyboardAwareScrollView> 
     );
   }
 }
@@ -140,8 +145,8 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "green",
     borderRadius: 15,
-    width:100,
-    alignSelf:'center'
+    width: 100,
+    alignSelf: "center"
   },
   loading: {
     height: 60,
